@@ -21,11 +21,10 @@ function App() {
   }
 
   return (
-    <div className="App">
+    // <div className="App">
+      <div className="modal">
       <h1>User Details Modal</h1>
       <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
-      <div className="modal">
-
 <div className="modal-content">
 
 {visible?<form onSubmit={handleSubmit}>
@@ -41,7 +40,7 @@ function App() {
 </form>:""}
 </div>
 </div>
-    </div>
+    // </div>
   );
 }
 
