@@ -25,9 +25,8 @@ function App() {
       <div className="modal">
       <h1>User Details Modal</h1>
       <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
-<div className="modal-content">
-
-{visible?<form onSubmit={handleSubmit}>
+<div className="modal-content" style={{display:visible?"block":"none"}}>
+<form onSubmit={handleSubmit}>
       <label>Username</label>
       <input type="text" id = "username" name="username" value = {username} onChange={(e)=>{setUsername(e.target.value)}} required/>
       <label>Email Address</label>
@@ -37,7 +36,7 @@ function App() {
       <label>Date of Birth</label>
       <input type="date" id="phone" name="dateOfBirth" value = {dateOfBirth} onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
       <button type="submit">Submit</button>
-</form>:""}
+</form>
 </div>
 </div>
     // </div>
