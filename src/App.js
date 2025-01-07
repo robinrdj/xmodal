@@ -37,10 +37,13 @@ function App() {
   }
 
   return (
-<div className="modal" >
+    <div className='app'>
       <h1>User Details Modal</h1>
       <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
+
+      
       {visible && (
+        <div className="modal" >
  <div onClick={()=>{setVisible(false)}} className="modal-back">
  <div className="modal-content"  onClick={(e)=>{e.stopPropagation()}}>
  <form onSubmit={handleSubmit}>
@@ -56,8 +59,11 @@ function App() {
  </form>
  </div>
  </div>
+ </div>
       )}
-</div>
+
+    </div>
+
   );
 }
 
