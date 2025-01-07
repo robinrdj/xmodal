@@ -37,7 +37,7 @@ function App() {
    <input type="number" id = "dob" name="phonenumber" value = {phonenumber} onChange={(e)=>{setPhonenumber(e.target.value)}}/>
    <label>Date of Birth</label>
    <input type="date" id="phone" name="dateOfBirth" value = {dateOfBirth} onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
-   <button type="submit">Submit</button>
+   <button type="submit" className='submit-button'>Submit</button>
  </form>
  </div>
  </div>
