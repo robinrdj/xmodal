@@ -13,20 +13,22 @@ function App() {
     e.preventDefault();
     if(phonenumber.length!==10){
       alert("Invalid phone number. Please enter a 10-digit phone number.");
+      return;
     }
     if(new Date(dateOfBirth)>new Date()){
       alert("Invalid date of birth. Date of birth cannot be in the future.");
+      return;
     }
     console.log("submitted successfully");
   }
 
   return (
-    // <div className="App">
-      <div className="modal">
+<div className="modal" >
       <h1>User Details Modal</h1>
       <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
-<div className="modal-content" style={{display:visible?"block":"none"}}>
-<form onSubmit={handleSubmit}>
+    <div onClick={()=>{setVisible(false)}}>
+    <div className="modal-content" style={{display:visible?"block":"none"}} onClick={(e)=>{e.stopPropagation()}}>
+    <form onSubmit={handleSubmit}>
       <label>Username</label>
       <input type="text" id = "username" name="username" value = {username} onChange={(e)=>{setUsername(e.target.value)}} required/>
       <label>Email Address</label>
@@ -36,10 +38,10 @@ function App() {
       <label>Date of Birth</label>
       <input type="date" id="phone" name="dateOfBirth" value = {dateOfBirth} onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
       <button type="submit">Submit</button>
-</form>
+    </form>
+    </div>
+    </div>
 </div>
-</div>
-    // </div>
   );
 }
 
