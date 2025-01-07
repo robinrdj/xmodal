@@ -19,6 +19,21 @@ function App() {
       return;
     }
     console.log("submitted successfully");
+
+    if (!username) {
+      alert('Please fill out the Username field.');
+      return;
+    }
+    if (!emailaddress.includes('@')) {
+      alert('Invalid email. Please check your email address.');
+      return;
+    }
+    if (phonenumber.length !== 10 || isNaN(phonenumber)) {
+      alert(
+        'Invalid phone number. Please enter a 10-digit phone number.'
+      );
+      return;
+    }
   }
 
   return (
@@ -32,11 +47,11 @@ function App() {
    <label>Username</label>
    <input type="text" id = "username" name="username" value = {username} onChange={(e)=>{setUsername(e.target.value)}} required/>
    <label>Email Address</label>
-   <input type="email" id = "email" name="emailaddress" value = {emailaddress} onChange={(e)=>{setEmailaddress(e.target.value)}}/>
+   <input type="email" id = "email" name="emailaddress" value = {emailaddress} onChange={(e)=>{setEmailaddress(e.target.value)}} required/>
    <label>Phone Number</label>
-   <input type="number" id = "dob" name="phonenumber" value = {phonenumber} onChange={(e)=>{setPhonenumber(e.target.value)}}/>
+   <input type="number" id = "phone" name="phonenumber" value = {phonenumber} onChange={(e)=>{setPhonenumber(e.target.value)}}/>
    <label>Date of Birth</label>
-   <input type="date" id="phone" name="dateOfBirth" value = {dateOfBirth} onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
+   <input type="date" id="dob" name="dateOfBirth" value = {dateOfBirth} onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
    <button type="submit" className='submit-button'>Submit</button>
  </form>
  </div>
