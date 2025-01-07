@@ -26,7 +26,7 @@ function App() {
       <h1>User Details Modal</h1>
       <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
       {visible && (
-//  <div onClick={()=>{setVisible(false)}} className="modal-back">
+ <div onClick={()=>{setVisible(false)}} className="modal-back">
  <div className="modal-content"  onClick={(e)=>{e.stopPropagation()}}>
  <form onSubmit={handleSubmit}>
    <label>Username</label>
@@ -40,7 +40,7 @@ function App() {
    <button type="submit" className='submit-button'>Submit</button>
  </form>
  </div>
-//  </div>
+ </div>
       )}
 </div>
   );
