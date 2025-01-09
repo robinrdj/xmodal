@@ -6,7 +6,16 @@ function App() {
   const [emailaddress, setEmailaddress] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  const [visible, setVisible] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const handleOutsideClick = (e) => {
+    if (e.target.className === "modal") {
+      closeModal();
+    }
+  };
 
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -34,18 +43,16 @@ function App() {
       );
       return;
     }
+    closeModal();
   }
 
   return (
     <div className='app'>
       <h1>User Details Modal</h1>
-      <button onClick={()=>{setVisible(!visible)}}>Open Form</button>
-
-      
-      {visible && (
-        <div className="modal" >
- <div onClick={()=>{setVisible(false)}} className="modal-back">
- <div className="modal-content"  onClick={(e)=>{e.stopPropagation()}}>
+      <button onClick={openModal}>Open Form</button>
+      {isOpen && (
+        <div className="modal" onClick={handleOutsideClick}>
+ <div className="modal-content">
  <form onSubmit={handleSubmit}>
    <label>Username</label>
    <input type="text" id = "username" name="username" value = {username} onChange={(e)=>{setUsername(e.target.value)}} required/>
@@ -59,11 +66,8 @@ function App() {
  </form>
  </div>
  </div>
- </div>
       )}
-
     </div>
-
   );
 }
 
